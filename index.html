@@ -1,37 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Spin City Treasures</title>
   <style>
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
       background-color: black;
+      color: #fff;
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
-      color: #fff;
+      min-height: 100vh;
+      padding: 1rem;
+      box-sizing: border-box;
     }
 
     .container {
       background: rgba(0, 0, 0, 0.85);
       border: 2px solid #0ff;
       border-radius: 15px;
-      padding: 2rem;
+      padding: 1.5rem;
       text-align: center;
+      width: 100%;
+      max-width: 400px;
       box-shadow: 0 0 20px #0ff;
+    }
+
+    img {
+      width: 100%;
+      max-width: 300px;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #0ff;
+      margin-bottom: 1.5rem;
+    }
+
+    h2 {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
     }
 
     input[type="password"] {
       padding: 10px;
       font-size: 1rem;
-      width: 250px;
+      width: 100%;
+      max-width: 100%;
       border: none;
       border-radius: 5px;
       margin-bottom: 1rem;
+      box-sizing: border-box;
     }
 
     button {
@@ -42,7 +62,8 @@
       border: none;
       border-radius: 5px;
       cursor: pointer;
-      transition: 0.3s;
+      transition: background-color 0.3s ease;
+      width: 100%;
     }
 
     button:hover {
@@ -52,31 +73,39 @@
     .error {
       color: #ff4d4d;
       margin-top: 1rem;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 1rem;
+      }
+
+      h2 {
+        font-size: 1rem;
+      }
     }
   </style>
 </head>
 <body>
   <div class="container">
     <!-- Replace with the correct Cloudinary image URL -->
-    <img src="https://res.cloudinary.com/dhg2r4rcn/image/upload/v1747161719/Messenger_creation_626141470460571_nj06k1.jpg " 
-         alt="Spin City Treasures Logo" 
-         width="640" 
-         height="360" 
-         style="margin-bottom: 20px; border-radius: 10px; box-shadow: 0 0 10px #0ff;">
-    
+    <img src="https://res.cloudinary.com/dhg2r4rcn/image/upload/v1747161719/Messenger_creation_626141470460571_nj06k1.jpg "
+         alt="Spin City Treasures Logo"
+         loading="lazy">
+
     <h2>Enter Password to Access</h2>
-    <input type="password" id="passwordInput" placeholder="Password...">
-    <br>
+    <input type="password" id="passwordInput" placeholder="Enter password..." autocomplete="current-password" />
     <button onclick="checkPassword()">Unlock</button>
     <div class="error" id="errorMessage"></div>
   </div>
 
   <script>
     const correctPassword = "SpinCT2025%"; // Change this as needed
-    const redirectURL = "https://spincitybackends.carrd.co "; // Valid main page
+    const redirectURL = "https://spincitybackends.carrd.co ";
 
     function checkPassword() {
-      const input = document.getElementById("passwordInput").value;
+      const input = document.getElementById("passwordInput").value.trim();
       const errorMsg = document.getElementById("errorMessage");
 
       if (input === correctPassword) {
