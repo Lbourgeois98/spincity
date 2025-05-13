@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spin City Treasures</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: #fff;
+    }
+
+    .container {
+      background: rgba(0, 0, 0, 0.85);
+      border: 2px solid #0ff;
+      border-radius: 15px;
+      padding: 2rem;
+      text-align: center;
+      box-shadow: 0 0 20px #0ff;
+    }
+
+    input[type="password"] {
+      padding: 10px;
+      font-size: 1rem;
+      width: 250px;
+      border: none;
+      border-radius: 5px;
+      margin-bottom: 1rem;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 1rem;
+      background-color: #0ff;
+      color: #000;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: #00f6ff;
+    }
+
+    .error {
+      color: #ff4d4d;
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a data-flickr-embed="true" href="https://www.flickr.com/photos/202398941@N05/54515929734/in/dateposted-public/" title="spincity">
+      <img src="https://live.staticflickr.com/65535/54515929734_11eae1df50_b.jpg" width="640" height="360" alt="spincity" style="margin-bottom: 20px; border-radius: 10px; box-shadow: 0 0 10px #0ff;">
+    </a>
+    <h2>Enter Password to Access</h2>
+    <input type="password" id="passwordInput" placeholder="Password...">
+    <br>
+    <button onclick="checkPassword()">Unlock</button>
+    <div class="error" id="errorMessage"></div>
+  </div>
+
+  <script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>
+  <script>
+    const correctPassword = "treasure123"; // Change this as needed
+    const redirectURL = "https://spincitytreasures.carrd.co/#backends"; // Target URL
+
+    function checkPassword() {
+      const input = document.getElementById("passwordInput").value;
+      const errorMsg = document.getElementById("errorMessage");
+
+      if (input === correctPassword) {
+        window.location.href = redirectURL;
+      } else {
+        errorMsg.textContent = "Incorrect password. Please try again.";
+      }
+    }
+  </script>
+</body>
+</html>
