@@ -57,9 +57,13 @@
 </head>
 <body>
   <div class="container">
-    <a data-flickr-embed="true" href="https://www.flickr.com/photos/202398941@N05/54515929734/in/dateposted-public/" title="spincity">
-      <img src="https://live.staticflickr.com/65535/54515929734_11eae1df50_b.jpg" width="640" height="360" alt="spincity" style="margin-bottom: 20px; border-radius: 10px; box-shadow: 0 0 10px #0ff;">
-    </a>
+    <!-- Replace with the correct Cloudinary image URL -->
+    <img src="https://res.cloudinary.com/dhg2r4rcn/image/upload/v1747108147/spincity.jpg " 
+         alt="Spin City Treasures Logo" 
+         width="640" 
+         height="360" 
+         style="margin-bottom: 20px; border-radius: 10px; box-shadow: 0 0 10px #0ff;">
+    
     <h2>Enter Password to Access</h2>
     <input type="password" id="passwordInput" placeholder="Password...">
     <br>
@@ -67,10 +71,9 @@
     <div class="error" id="errorMessage"></div>
   </div>
 
-  <script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>
   <script>
     const correctPassword = "treasure123"; // Change this as needed
-    const redirectURL = "https://spincitytreasures.carrd.co/#backends"; // Target URL
+    const redirectURL = "https://spincitytreasures.carrd.co/#backends"; // Valid main page
 
     function checkPassword() {
       const input = document.getElementById("passwordInput").value;
